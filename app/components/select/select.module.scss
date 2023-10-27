@@ -1,0 +1,110 @@
+.select {
+  position: relative;
+  height: auto;
+  display: flex;
+  width: 380px;
+  border-radius: 20px;
+  background-color: #fff;
+  cursor: pointer;
+  padding-bottom: 30px;
+
+  &.disabled {
+    background-color: #d3d3d3;
+    cursor: auto;
+
+    input {
+      background-color: #d3d3d3;
+      cursor: auto;
+    }
+  }
+
+  .wrapperInput {
+    display: flex;
+    position: relative;
+    width: 380px;
+    border: 2px solid blue;
+    border-radius: 20px;
+    padding: 5px;
+    text-align: center;
+
+    .input{
+      padding-left: 10px;
+      border:none;
+      font-weight: 500;
+      font-size: 24px ;
+      background-color: initial;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .prefix {
+      position: absolute;
+      top: 0;
+      right: 30px;
+      padding: 0 5px;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      &.disabled {
+        cursor: auto;
+      }
+
+      .icon {
+        top: 45%;
+        transform: rotateX(0deg);
+        font-size: 25px;
+        height: 30px;
+        width: 30px;
+        color: black;
+        display: flex;
+        align-items: center;
+        transition: transform .2s ease;
+        pointer-events: none;
+      }
+      .active {
+        transform: rotateX(180deg);
+      }
+    }
+  }
+
+  .options {
+    position: absolute;
+    z-index: 10000;
+    background: white;
+    width: 380px;
+    max-height: 220px;
+    top: 90%;
+    overflow: hidden;
+    overflow-y: auto;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s ease;
+    border: 2px solid blue;
+    border-radius: 20px;
+  }
+
+  .active {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(5%);
+  }
+
+  .li{
+    text-align: left;
+    list-style: none;
+    font-size: 18px;
+    text-transform: capitalize;
+    padding: 10px 15px;
+    //background-color: ;
+    &:hover {
+      color: blue;
+      cursor: pointer;
+    }
+  }
+
+}
+
+
+
