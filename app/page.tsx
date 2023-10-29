@@ -2,12 +2,16 @@
 import React, {useEffect, useState} from "react";
 import styles from './page.module.css'
 import {getAllData} from "../services/getData";
-import { WrapperApexGraph } from "./components/wrapperApexGraph/WrapperApexGraph";
+import {WrapperApexGraph} from "./components/wrapperApexGraph/WrapperApexGraph";
 
+export interface IData {
+    [key: string]: Record<string, number>
+}
 
 export default function Home() {
 
-    const [data, setData] = useState()
+    const [data, setData] = useState<IData>()
+
     useEffect(() => {
             getAllData().then( (res)=> {
                 if (res){

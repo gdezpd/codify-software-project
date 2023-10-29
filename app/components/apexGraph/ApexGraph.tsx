@@ -1,15 +1,16 @@
 'use client'
 import React, {useEffect, useState} from "react";
 import dynamic from "next/dynamic";
+import {IData} from "@component/app/page";
 
-const ApexChart = dynamic(() => import("react-apexcharts"), { ssr: false }  );
+const ApexChart = dynamic(() => import("react-apexcharts"), {ssr: false});
 
-export type IApexGraph = {
-    [key: string]: number
+export interface IApexGraphProps {
+    selectedData: IData
 }
 
-export const ApexGraph = (props: IApexGraph) => {
-    const {selectedData} = props
+export const ApexGraph = ({selectedData}: IApexGraphProps) => {
+
     const [axisX, setAxisX] = useState<string[]>([])
     const [axisY, setAxisY] = useState<number[]>([])
 
@@ -18,7 +19,7 @@ export const ApexGraph = (props: IApexGraph) => {
             const arrX = Object.values(selectedData).map((key) => Object.keys(key))
             const arrY = Object.values(selectedData).map((value) => Object.values(value))
             setAxisX(arrX[0])
-            setAxisY(arrY[0] as number[])
+            setAxisY(arrY[0])
         }
     }, [selectedData])
 
